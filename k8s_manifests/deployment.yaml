@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: antiok/hello-project:pro
+        image: antiok/hello-project:latest
         ports:
         - containerPort: 5000
 
