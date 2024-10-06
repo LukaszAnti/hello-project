@@ -27,6 +27,6 @@ resource "helm_release" "cert_manager" {
     value = "true"
   }
 
-  create_namespace = true
+  create_namespace = false
   version          = "v1.13.0"
 }
