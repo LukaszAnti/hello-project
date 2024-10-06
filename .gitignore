@@ -4,7 +4,7 @@
 # Ignorowanie plików Terraform stanu
 *.tfstate
 *.tfstate.backup
-*.terraform
+.terraform/
 # Ignorowanie plików logów
 *.log
 notki
