@@ -36,6 +36,9 @@ resource "helm_release" "grafana" {
       enabled: true
       storageClass: "standard"  # Zmienione na standard
       size: 10Gi
+    service:
+      type: LoadBalancer
+      port: 80
     EOF
   ]
 }
