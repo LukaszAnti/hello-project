@@ -1,6 +1,5 @@
 # Google Provider
 provider "google" {
-  credentials = file("/home/anti/app_pro/infrastructure/gcp/terraform-key.json")
   project     = var.project_id
   region      = var.region
 }

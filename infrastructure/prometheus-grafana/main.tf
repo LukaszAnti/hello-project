@@ -47,11 +47,13 @@ resource "helm_release" "prometheus" {
   repository = "https://prometheus-community.github.io/helm-charts"
   version    = "22.5.0"
 
-  timeout    = 1200
+  
 
   values = [
     <<EOF
     server:
+      service: 
+        type: LoadBalancer
       persistentVolume:
         enabled: true
         storageClass: "standard"  # Zmienione na standard
@@ -63,6 +65,19 @@ resource "helm_release" "prometheus" {
         limits:
           memory: "2Gi"
           cpu: "1"
+      scrape_configs:
+        - job_name: 'kubernetes-nodes'
+          kubernetes_sd_configs:
+            - role: node
+          relabel_configs:
+            - action: labelmap
+              regex: __meta_kubernetes_node_label_(.+)
+        - job_name: 'kubernetes-pods'
+          kubernetes_sd_configs:
+            - role: pod
+          relabel_configs:
+            - action: labelmap
+              regex: __meta_kubernetes_pod_label_(.+)
     EOF
   ]
 }

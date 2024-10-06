@@ -31,7 +31,7 @@ resource "kubernetes_manifest" "parent_app" {
       project = "default"
       source = {
         repoURL        = "git@github.com/LukaszAnti/hello-project.git"
-        path           = "k8s_manifests"
+        path           = "hello-app/k8s_manifests"
         targetRevision = "HEAD"
       }
       destination = {

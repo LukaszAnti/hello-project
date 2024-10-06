@@ -44,7 +44,7 @@ resource "helm_release" "argocd" {
   values = [
     <<EOF
 crds:
-  install: true
+  install: false
 server:
   service:
     type: LoadBalancer
