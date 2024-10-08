@@ -4,6 +4,8 @@ metadata:
   name: hello-app
   namespace: argocd
   annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+    cloud.google.com/app-protocols: '{"https": "HTTP2"}'
     cloud.google.com/load-balancer-type: "External"
 spec:
   type: LoadBalancer
