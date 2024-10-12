@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: hello-app
   namespace: hello-app-namespace
-  annotations:
-    networking.gke.io/managed-certificates: "my-managed-cert"
 spec:
   type: LoadBalancer
   selector:
