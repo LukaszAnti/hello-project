@@ -1,8 +1,0 @@
-apiVersion: networking.gke.io/v1
-kind: ManagedCertificate
-metadata:
-  name: my-managed-cert
-  namespace: hello-app-namespace  # Namespace, w którym działa Twoja aplikacja
-spec:
-  domains:
-    - flask-project.org
