@@ -100,14 +100,14 @@ resource "kubernetes_manifest" "flask_project_ingress" {
       name      = "flask-project-ingress"
       namespace = "hello-app-namespace"
       annotations = {
-        "cert-manager.io/cluster-issuer" = "letsencrypt-prod"  # ClusterIssuer staging
+        "cert-manager.io/cluster-issuer" = "letsencrypt-prod"  
       }
     }
     spec = {
-      ingressClassName = "nginx"  # Klasa Ingressa
+      ingressClassName = "nginx"  
       tls = [{
         hosts = ["flask-project.org"]
-        secretName = "flask-project-cert-secret"  # Sekret certyfikatu staging
+        secretName = "flask-project-cert-secret"  
       }]
       rules = [{
         host = "flask-project.org"
@@ -117,9 +117,9 @@ resource "kubernetes_manifest" "flask_project_ingress" {
             pathType = "Prefix"
             backend = {
               service = {
-                name = "hello-app"  # Nazwa Twojej aplikacji
+                name = "hello-app"  
                 port = {
-                  number = 80  # Port aplikacji
+                  number = 80  
                 }
               }
             }
