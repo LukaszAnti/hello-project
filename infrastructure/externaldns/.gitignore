@@ -1,9 +1,6 @@
-# Ignorowanie plików z poświadczeniami
 *.json
-
-# Ignorowanie plików Terraform stanu
+*.tfvars
 *.tfstate
 *.tfstate.backup
-
-# Ignorowanie plików logów
 *.log
+variables.tf
