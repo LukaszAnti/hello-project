@@ -6,3 +6,4 @@
 # Ignorowanie plików logów
 *.log
 variables.tf
+*.terraform.lock.hcl
