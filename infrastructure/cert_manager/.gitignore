@@ -1,7 +1,8 @@
 .terraform/
-
+*.tfvars
 *.tfstate
 *.tfstate.backup
 *.json
 # Ignorowanie plików logów
 *.log
+variables.tf
