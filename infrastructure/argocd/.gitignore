@@ -8,3 +8,4 @@ terraform.tfstate.1727971921.backup
 terraform.tfstate.1727971931.backup
 # Ignorowanie plików logów
 *.log
+variables.tf
