@@ -72,12 +72,16 @@ hello-project/
 │   │   ├── main.tf            # Main Terraform file for GKE setup
 │   ├── argocd/                # ArgoCD configuration
 │   │   ├── main.tf            # Terraform file for ArgoCD deployment
-│   ├── nginx/                 # NGINX Ingress Controller setup
-│   │   ├── main.tf            # Terraform file for NGINX Ingress
-│   ├── prometheus/            # Prometheus and Grafana setup
+│   ├── argocd-resources/      # ArgoCD resources (applications, projects, etc.)
+│   │   ├── main.tf            # Terraform file for ArgoCD resources
+│   ├── cert-manager/          # Cert-manager and NGINX Ingress configuration
+│   │   ├── main.tf            # Terraform file for Cert-manager and NGINX
+│   ├── externaldns/           # DNS configuration for managing DNS records
+│   │   ├── main.tf            # Terraform file for ExternalDNS
+│   ├── prometheus-grafana/    # Prometheus and Grafana setup
 │   │   ├── main.tf            # Terraform file for monitoring tools
 └── README.md                  # Project documentation (this file)
-
+```
 
 ## Step-by-Step Deployment Guide
 
@@ -141,12 +145,12 @@ The app should be deployed in a pod running in the `argocd` namespace.
 > **Note:** If you are using a different namespace for your application, replace `argocd` with your custom namespace.
 
 ### Step 5: Set Up NGINX Ingress for HTTPS
-To handle HTTPS and routing, you need to set up the NGINX Ingress Controller. Navigate to the `infrastructure/nginx` folder:
+To handle HTTPS and routing, you need to set up the NGINX Ingress Controller. Navigate to the `infrastructure/cert-manager` folder:
 
 ```bash
-cd ../nginx
+cd ../cert-manager
 terraform init   # Initialize Terraform in this directory
-terraform apply  # Apply configuration to set up NGINX Ingress
+terraform apply  # Apply configuration to set up NGINX Ingress and Cert-manager
 ```
 
 This will provision the NGINX Ingress controller, which will route HTTP and HTTPS traffic to your Flask app and automatically provision SSL certificates via Let's Encrypt.
@@ -166,7 +170,7 @@ Find the external IP of the `ingress-nginx-controller` service. Then, update the
 The Cert-manager and certificate configuration are managed through Terraform. To set them up, navigate to the `cert_manager` directory and apply the Terraform configuration:
 
 ```bash
-cd ../cert_manager
+cd ../cert-manager
 terraform init   # Initialize Terraform in this directory
 terraform apply  # Apply the configuration to set up Cert-manager and obtain an SSL certificate
 ```
