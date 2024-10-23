@@ -77,7 +77,7 @@ hello-project/
 │   ├── cert-manager/          # Cert-manager and NGINX Ingress configuration
 │   │   ├── main.tf            # Terraform file for Cert-manager and NGINX
 │   ├── externaldns/           # DNS configuration for managing DNS records
-│   │   ├── main.tf            # Terraform file for ExternalDNS
+│   │   ├── main.tf            # Terraform file for DNS
 │   ├── prometheus-grafana/    # Prometheus and Grafana setup
 │   │   ├── main.tf            # Terraform file for monitoring tools
 └── README.md                  # Project documentation (this file)
